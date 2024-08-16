@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -11,8 +10,8 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     copy({
-      targets: [{ src: 'src/*.shr.ts', dest: '../backend/src/share' }]
-      // hook: 'buildEnd' // Копировать файлы после завершения сборки
+      targets: [{ src: 'src/**/*.shr.ts', dest: '../backend/src/share' }]
+      // hook: 'buildEnd' // Copy files after build completes
     })
   ],
   resolve: {

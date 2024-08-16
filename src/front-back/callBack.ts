@@ -9,7 +9,6 @@ const $ = <F extends FN>(fn: F) => {
     if (result.log) console.log(result.log)
     if (!result.isOk) throw new Error('back error: ' + result.err)
     return result.result as Awaited<ReturnType<F>>
-    // const result= await postData<Awaited<ReturnType<F>>>({ name: fn.name, args })
   }
 }
 

@@ -1,6 +1,3 @@
-//import { token } from '@/system/Account';
-//import superjson from 'superjson';
-
 const getConfig = (): Partial<RequestInit> => {
   return {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -33,15 +30,11 @@ const postMethod = async <TResponse>(data: Record<string, unknown>): Promise<TRe
   const url = import.meta.env.VITE_URL
   const options: RequestInit = {
     ...getConfig(),
-    //    body: superjson.stringify(postData),
     body: JSON.stringify(postData)
   }
-
   const response = await fetch(url, options)
-
   const json = await response.text()
   return JSON.parse(json, dateReviver) as TResponse
-  // return superjson.parse<TResponse>(json);
 }
 
 export default postMethod
